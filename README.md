@@ -1,6 +1,7 @@
 # ViewBatchModel
 [CVPR'25] do your best and get enough rest for continual learning
 
+## Experimental Results
 | Method | View-batch Replay | Strong Augment | View-batch SSL | Forgetting(⬇️) | CIL(⬆️)    | TIL(⬆️)    | AVG   | ∆         |
 | ------ | ----------------- | -------------- | -------------- | -------------- | ---------- | ---------- | ----- | --------- |
 | iCaRL  | ❌                 | ❌              | ❌              | 28.05±4.21     | 63.58±2.64 | 90.32±3.19 | 76.95 | -         |
