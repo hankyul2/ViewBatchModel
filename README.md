@@ -12,6 +12,13 @@
 
 ## Artifacts
 
+### Log
+
+**Wandb Project Link**: https://wandb.ai/gregor99/view_batch_model.
+
+We provide everything needed to reproduce our results in the given wandb project. It includes command line, logs, console outputs, and environments for each run.
+
+### Checkpoint
 
 **seed=1993**
 
