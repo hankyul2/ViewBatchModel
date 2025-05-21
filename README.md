@@ -1,6 +1,6 @@
 # Do Your Best and Get Enough Rest for Continual Learning
 
-This folder contains official pyTorch implementations for *"Do Your Best and Get Enough Rest for Continual Learning"* accepted in CVPR'25. (see our [paper](https://arxiv.org/pdf/2503.18371)).
+This folder contains official pyTorch implementations for *"Do Your Best and Get Enough Rest for Continual Learning"* accepted in CVPR'25. (see our [paper](https://arxiv.org/pdf/2503.18371), [slides](https://cvpr.thecvf.com/media/cvpr-2025/Slides/34881.pdf), [poster](https://cvpr.thecvf.com/media/PosterPDFs/CVPR%202025/34881.png?t=1747793527.8730633)).
 
 
 
