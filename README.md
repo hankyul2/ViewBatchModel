@@ -16,6 +16,14 @@ This folder contains official pyTorch implementations for *"Do Your Best and Get
 
 1. Clone this repository and install the requirements.
 
+   ```bash
+   git clone https://github.com/hankyul2/ViewBatchModel.git
+   cd ViewBatchModel
+   pip install -r requirements.txt
+   ```
+
+   
+
 2. Train ResNet18 on S-CIFAR-10 using iCaRL as baseline methods with 200 buffers.
 
    iCaRL
