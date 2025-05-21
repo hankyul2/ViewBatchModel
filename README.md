@@ -53,7 +53,7 @@ This folder contains official pyTorch implementations for *"Do Your Best and Get
    CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r4_hard_aug_s1997_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
    ```
 
-4. See [scripts/icarl](scripts/icarl) for more commands to reproduce Table 6 in the paper. Also, check [datasets/utils/continual_datasets#L24](datasets/utils/continual_datasets#L24) for view-batch replay and [models/icarl.py#L78](models/icarl.py#L78) for view-batch SSL.
+4. See [scripts/icarl](scripts/icarl) for more commands to reproduce Table 6 in the paper. Also, check [datasets/utils/continual_datasets.py#L24](datasets/utils/continual_datasets.py#L24) for view-batch replay and [models/icarl.py#L78](models/icarl.py#L78) for view-batch SSL.
 
 
 
