@@ -1,26 +1,98 @@
-# ViewBatchModel
-[CVPR'25] do your best and get enough rest for continual learning
+# Do Your Best and Get Enough Rest for Continual Learning
 
-## Experimental Results
+This folder contains official pyTorch implementations for *"Do Your Best and Get Enough Rest for Continual Learning"* accepted in CVPR'25. (see our [paper](https://arxiv.org/pdf/2503.18371)).
+
+
+
+<p align="center">
+    <img width="700px" src="img/framework.png"/>
+    <br/>
+  <h4 align="center">Illustration of View-Batch Model</h4>
+</p>
+
+
+
+## 1. Tutorial
+
+1. Clone this repository and install the requirements.
+
+2. Train ResNet18 on S-CIFAR-10 using iCaRL as baseline methods with 200 buffers.
+
+   iCaRL
+
+   ```bash
+   # this will save checkpoints to icarl_r1_s1993
+   CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --savecheck 1 --ckpt_name icarl_r1_s1993
+   ```
+
+   **Ours**-iCaRL
+
+   ```bash
+   CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --aug-repeat 4 --prog-aug 5 --seed 1993 --flag hard_aug --savecheck 1 --ckpt_name icarl_r4_hard_aug_s1993
+   ```
+
+3. Validate the trained network using the saved checkpoint.
+
+   iCaRL
+
+   ```bash
+   CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r1_s1993_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
+   ```
+
+   **Ours**-iCaRL
+
+   ```bash
+   CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r4_hard_aug_s1997_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
+   ```
+
+4. See [scripts/icarl](scripts/icarl) for more command line to reproduce Table 6 in the paper.
+
+
+
+## 2. Reproduced Results
+
+After the paper has been accepted, we rerun everything to provide complete logs and checkpoints for our Table 6 in the paper. Our exact environments are:
+
+- `torch==1.12.1+cu113`
+- `torchvision==0.13.1+cu113`
+- `timm==1.0.7`
+- `numpy==1.24.4`
+
+
+
+### Experimental Results
+
+The table below reproduces Table 6 of our paper, which contains the main ablation study for the proposed method.
+
 | Method | View-batch Replay | Strong Augment | View-batch SSL | Forgetting(⬇️) | CIL(⬆️)    | TIL(⬆️)    | AVG   | ∆         |
-| ------ | ----------------- | -------------- | -------------- | -------------- | ---------- | ---------- | ----- | --------- |
+|--------|-------------------|----------------|----------------|----------------|------------|------------|-------|-----------|
 | iCaRL  | ❌                 | ❌              | ❌              | 28.05±4.21     | 63.58±2.64 | 90.32±3.19 | 76.95 | -         |
 | iCaRL  | ❌                 | ✅              | ❌              | 22.16±0.91     | 65.33±1.05 | 89.33±0.58 | 77.33 | **+0.38** |
 | iCaRL  | ✅                 | ❌              | ❌              | 18.72±1.76     | 67.21±0.42 | 91.63±0.98 | 79.42 | **+2.47** |
 | iCaRL  | ✅                 | ✅              | ❌              | 18.29±0.91     | 67.16±0.75 | 91.02±0.97 | 79.09 | **+2.14** |
 | iCaRL  | ✅                 | ✅              | ✅              | 13.81±1.58     | 69.25±0.41 | 92.73±0.57 | 80.99 | **+4.04** |
 
-## Artifacts
+
 
 ### Log
 
-**Wandb Project Link**: https://wandb.ai/gregor99/view_batch_model.
+Below, the WanDB project link provides the complete logs that are made during the training of the above tables. It includes:
 
-We provide everything needed to reproduce our results in the given wandb project. It includes command line, logs, console outputs, and environments for each run.
+- command line
+- metrics
+- console outputs
+- environments
+
+**WanDB Project Link**: https://wandb.ai/gregor99/view_batch_model.
+
+
 
 ### Checkpoint
 
-**seed=1993**
+The tables below provide the checkpoints saved at the end of tasks during the training of the above tables.
+
+<details>
+    <summary>seed=1993</summary>
 
 | method | View-batch Replay | Strong Augmentation | View-batch SSL | task 1                                                                                                            | task 2                                                                                                            | task 3                                                                                                            | task 4                                                                                                            | task 5                                                                                                            |
 |--------|-------------------|---------------------|----------------|-------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
@@ -30,8 +102,12 @@ We provide everything needed to reproduce our results in the given wandb project
 | iCaRL  | v                 | v                   | -              | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_hard_aug_s1993_cifar10_t0.pt) | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_hard_aug_s1993_cifar10_t1.pt) | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_hard_aug_s1993_cifar10_t2.pt) | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_hard_aug_s1993_cifar10_t3.pt) | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_hard_aug_s1993_cifar10_t4.pt) |
 | iCaRL  | v                 | v                   | v              | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_ssl_s1993_cifar10_t0.pt)      | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_ssl_s1993_cifar10_t1.pt)      | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_ssl_s1993_cifar10_t2.pt)      | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_ssl_s1993_cifar10_t3.pt)      | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_ssl_s1993_cifar10_t4.pt)      |
 
+</details>
 
-**seed=1996**
+
+
+<details>
+    <summary>seed=1996</summary>
 
 | method | View-batch Replay | Strong Augmentation | View-batch SSL | task 1                                                                                                            | task 2                                                                                                            | task 3                                                                                                            | task 4                                                                                                            | task 5                                                                                                            |
 |--------|-------------------|---------------------|----------------|-------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
@@ -41,8 +117,12 @@ We provide everything needed to reproduce our results in the given wandb project
 | iCaRL  | v                 | v                   | -              | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_hard_aug_s1996_cifar10_t0.pt) | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_hard_aug_s1996_cifar10_t1.pt) | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_hard_aug_s1996_cifar10_t2.pt) | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_hard_aug_s1996_cifar10_t3.pt) | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_hard_aug_s1996_cifar10_t4.pt) |
 | iCaRL  | v                 | v                   | v              | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_ssl_s1996_cifar10_t0.pt)      | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_ssl_s1996_cifar10_t1.pt)      | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_ssl_s1996_cifar10_t2.pt)      | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_ssl_s1996_cifar10_t3.pt)      | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_ssl_s1996_cifar10_t4.pt)      |
 
+</details>
 
-**seed=1997**
+
+
+<details>
+    <summary>seed=1997</summary>
 
 | method | View-batch Replay | Strong Augmentation | View-batch SSL | task 1                                                                                                            | task 2                                                                                                            | task 3                                                                                                            | task 4                                                                                                            | task 5                                                                                                            |
 |--------|-------------------|---------------------|----------------|-------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
@@ -52,7 +132,10 @@ We provide everything needed to reproduce our results in the given wandb project
 | iCaRL  | v                 | v                   | -              | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_hard_aug_s1997_cifar10_t0.pt) | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_hard_aug_s1997_cifar10_t1.pt) | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_hard_aug_s1997_cifar10_t2.pt) | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_hard_aug_s1997_cifar10_t3.pt) | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_hard_aug_s1997_cifar10_t4.pt) |
 | iCaRL  | v                 | v                   | v              | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_ssl_s1997_cifar10_t0.pt)      | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_ssl_s1997_cifar10_t1.pt)      | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_ssl_s1997_cifar10_t2.pt)      | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_ssl_s1997_cifar10_t3.pt)      | [ckpt](https://github.com/hankyul2/ViewBatchModel/releases/download/v1.0.0/icarl_r4_ssl_s1997_cifar10_t4.pt)      |
 
+</details>
 
 
 
+## 3. Acknowledgement
 
+This project is heavily based on [Mammoth](https://github.com/aimagelab/mammoth). We sincerely appreciate the authors of the mentioned works for sharing such great library as open-source project.

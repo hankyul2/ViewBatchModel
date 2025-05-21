@@ -1,0 +1,103 @@
+ession_name: icarl_cifar10
+windows:
+  - window_name: cifar10
+    layout: tiled
+    shell_command_before:
+      - conda activate mammoth
+    panes:
+    # Run the iCaRL baseline
+      - shell_command:
+        CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r1_s1993_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
+        CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r1_s1993_cifar10_t1.pth --start_from 1 --stop_after 1 --inference_only 1
+        CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r1_s1993_cifar10_t2.pth --start_from 2 --stop_after 2 --inference_only 1
+        CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r1_s1993_cifar10_t3.pth --start_from 3 --stop_after 3 --inference_only 1
+        CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r1_s1993_cifar10_t4.pth --start_from 4 --stop_after 4 --inference_only 1
+      - shell_command:
+        CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r1_s1996_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
+        CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r1_s1996_cifar10_t1.pth --start_from 1 --stop_after 1 --inference_only 1
+        CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r1_s1996_cifar10_t2.pth --start_from 2 --stop_after 2 --inference_only 1
+        CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r1_s1996_cifar10_t3.pth --start_from 3 --stop_after 3 --inference_only 1
+        CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r1_s1996_cifar10_t4.pth --start_from 4 --stop_after 4 --inference_only 1
+      - shell_command:
+        CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r1_s1997_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
+        CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r1_s1997_cifar10_t1.pth --start_from 1 --stop_after 1 --inference_only 1
+        CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r1_s1997_cifar10_t2.pth --start_from 2 --stop_after 2 --inference_only 1
+        CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r1_s1997_cifar10_t3.pth --start_from 3 --stop_after 3 --inference_only 1
+        CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r1_s1997_cifar10_t4.pth --start_from 4 --stop_after 4 --inference_only 1
+    # Run the iCaRL baseline with strong augmentation
+      - shell_command:
+        CUDA_VISIBLE_DEVICES=1 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r1_hard_aug_s1993_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
+        CUDA_VISIBLE_DEVICES=1 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r1_hard_aug_s1993_cifar10_t1.pth --start_from 1 --stop_after 1 --inference_only 1
+        CUDA_VISIBLE_DEVICES=1 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r1_hard_aug_s1993_cifar10_t2.pth --start_from 2 --stop_after 2 --inference_only 1
+        CUDA_VISIBLE_DEVICES=1 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r1_hard_aug_s1993_cifar10_t3.pth --start_from 3 --stop_after 3 --inference_only 1
+        CUDA_VISIBLE_DEVICES=1 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r1_hard_aug_s1993_cifar10_t4.pth --start_from 4 --stop_after 4 --inference_only 1
+      - shell_command:
+        CUDA_VISIBLE_DEVICES=1 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r1_hard_aug_s1996_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
+        CUDA_VISIBLE_DEVICES=1 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r1_hard_aug_s1996_cifar10_t1.pth --start_from 1 --stop_after 1 --inference_only 1
+        CUDA_VISIBLE_DEVICES=1 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r1_hard_aug_s1996_cifar10_t2.pth --start_from 2 --stop_after 2 --inference_only 1
+        CUDA_VISIBLE_DEVICES=1 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r1_hard_aug_s1996_cifar10_t3.pth --start_from 3 --stop_after 3 --inference_only 1
+        CUDA_VISIBLE_DEVICES=1 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r1_hard_aug_s1996_cifar10_t4.pth --start_from 4 --stop_after 4 --inference_only 1
+      - shell_command:
+        CUDA_VISIBLE_DEVICES=1 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r1_hard_aug_s1997_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
+        CUDA_VISIBLE_DEVICES=1 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r1_hard_aug_s1997_cifar10_t1.pth --start_from 1 --stop_after 1 --inference_only 1
+        CUDA_VISIBLE_DEVICES=1 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r1_hard_aug_s1997_cifar10_t2.pth --start_from 2 --stop_after 2 --inference_only 1
+        CUDA_VISIBLE_DEVICES=1 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r1_hard_aug_s1997_cifar10_t3.pth --start_from 3 --stop_after 3 --inference_only 1
+        CUDA_VISIBLE_DEVICES=1 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r1_hard_aug_s1997_cifar10_t4.pth --start_from 4 --stop_after 4 --inference_only 1
+    # Run iCaRL with view-batch replay
+      - shell_command:
+        CUDA_VISIBLE_DEVICES=2 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r4_s1993_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
+        CUDA_VISIBLE_DEVICES=2 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r4_s1993_cifar10_t1.pth --start_from 1 --stop_after 1 --inference_only 1
+        CUDA_VISIBLE_DEVICES=2 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r4_s1993_cifar10_t2.pth --start_from 2 --stop_after 2 --inference_only 1
+        CUDA_VISIBLE_DEVICES=2 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r4_s1993_cifar10_t3.pth --start_from 3 --stop_after 3 --inference_only 1
+        CUDA_VISIBLE_DEVICES=2 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r4_s1993_cifar10_t4.pth --start_from 4 --stop_after 4 --inference_only 1
+      - shell_command:
+        CUDA_VISIBLE_DEVICES=2 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r4_s1996_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
+        CUDA_VISIBLE_DEVICES=2 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r4_s1996_cifar10_t1.pth --start_from 1 --stop_after 1 --inference_only 1
+        CUDA_VISIBLE_DEVICES=2 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r4_s1996_cifar10_t2.pth --start_from 2 --stop_after 2 --inference_only 1
+        CUDA_VISIBLE_DEVICES=2 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r4_s1996_cifar10_t3.pth --start_from 3 --stop_after 3 --inference_only 1
+        CUDA_VISIBLE_DEVICES=2 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r4_s1996_cifar10_t4.pth --start_from 4 --stop_after 4 --inference_only 1
+      - shell_command:
+        CUDA_VISIBLE_DEVICES=2 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r4_s1997_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
+        CUDA_VISIBLE_DEVICES=2 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r4_s1997_cifar10_t1.pth --start_from 1 --stop_after 1 --inference_only 1
+        CUDA_VISIBLE_DEVICES=2 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r4_s1997_cifar10_t2.pth --start_from 2 --stop_after 2 --inference_only 1
+        CUDA_VISIBLE_DEVICES=2 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r4_s1997_cifar10_t3.pth --start_from 3 --stop_after 3 --inference_only 1
+        CUDA_VISIBLE_DEVICES=2 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r4_s1997_cifar10_t4.pth --start_from 4 --stop_after 4 --inference_only 1
+    # Run iCaRL with view-batch replay, strong augmentation and view-batch SSL
+      - shell_command:
+        CUDA_VISIBLE_DEVICES=3 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r4_ssl_s1993_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
+        CUDA_VISIBLE_DEVICES=3 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r4_ssl_s1993_cifar10_t1.pth --start_from 1 --stop_after 1 --inference_only 1
+        CUDA_VISIBLE_DEVICES=3 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r4_ssl_s1993_cifar10_t2.pth --start_from 2 --stop_after 2 --inference_only 1
+        CUDA_VISIBLE_DEVICES=3 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r4_ssl_s1993_cifar10_t3.pth --start_from 3 --stop_after 3 --inference_only 1
+        CUDA_VISIBLE_DEVICES=3 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r4_ssl_s1993_cifar10_t4.pth --start_from 4 --stop_after 4 --inference_only 1
+      - shell_command:
+        CUDA_VISIBLE_DEVICES=3 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r4_ssl_s1996_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
+        CUDA_VISIBLE_DEVICES=3 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r4_ssl_s1996_cifar10_t1.pth --start_from 1 --stop_after 1 --inference_only 1
+        CUDA_VISIBLE_DEVICES=3 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r4_ssl_s1996_cifar10_t2.pth --start_from 2 --stop_after 2 --inference_only 1
+        CUDA_VISIBLE_DEVICES=3 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r4_ssl_s1996_cifar10_t3.pth --start_from 3 --stop_after 3 --inference_only 1
+        CUDA_VISIBLE_DEVICES=3 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r4_ssl_s1996_cifar10_t4.pth --start_from 4 --stop_after 4 --inference_only 1
+      - shell_command:
+        CUDA_VISIBLE_DEVICES=3 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r4_ssl_s1997_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
+        CUDA_VISIBLE_DEVICES=3 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r4_ssl_s1997_cifar10_t1.pth --start_from 1 --stop_after 1 --inference_only 1
+        CUDA_VISIBLE_DEVICES=3 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r4_ssl_s1997_cifar10_t2.pth --start_from 2 --stop_after 2 --inference_only 1
+        CUDA_VISIBLE_DEVICES=3 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r4_ssl_s1997_cifar10_t3.pth --start_from 3 --stop_after 3 --inference_only 1
+        CUDA_VISIBLE_DEVICES=3 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r4_ssl_s1997_cifar10_t4.pth --start_from 4 --stop_after 4 --inference_only 1
+    # Run iCaRL with view-batch replay and strong augmentation
+      - shell_command:  
+        CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r4_hard_aug_s1993_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
+        CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r4_hard_aug_s1993_cifar10_t1.pth --start_from 1 --stop_after 1 --inference_only 1
+        CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r4_hard_aug_s1993_cifar10_t2.pth --start_from 2 --stop_after 2 --inference_only 1
+        CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r4_hard_aug_s1993_cifar10_t3.pth --start_from 3 --stop_after 3 --inference_only 1
+        CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --loadcheck checkpoints/icarl_r4_hard_aug_s1993_cifar10_t4.pth --start_from 4 --stop_after 4 --inference_only 1
+      - shell_command:
+        CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r4_hard_aug_s1996_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
+        CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r4_hard_aug_s1996_cifar
+        CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r4_hard_aug_s1996_cifar10_t1.pth --start_from 1 --stop_after 1 --inference_only 1
+        CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r4_hard_aug_s1996_cifar10_t2.pth --start_from 2 --stop_after 2 --inference_only 1
+        CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r4_hard_aug_s1996_cifar10_t3.pth --start_from 3 --stop_after 3 --inference_only 1
+        CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1996 --loadcheck checkpoints/icarl_r4_hard_aug_s1996_cifar10_t4.pth --start_from 4 --stop_after 4 --inference_only 1
+      - shell_command:
+        CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r4_hard_aug_s1997_cifar10_t0.pth --start_from 0 --stop_after 0 --inference_only 1
+        CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r4_hard_aug_s1997_cifar10_t1.pth --start_from 1 --stop_after 1 --inference_only 1
+        CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r4_hard_aug_s1997_cifar10_t2.pth --start_from 2 --stop_after 2 --inference_only 1
+        CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r4_hard_aug_s1997_cifar10_t3.pth --start_from 3 --stop_after 3 --inference_only 1
+        CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1997 --loadcheck checkpoints/icarl_r4_hard_aug_s1997_cifar10_t4.pth --start_from 4 --stop_after 4 --inference_only 1
