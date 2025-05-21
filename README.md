@@ -5,7 +5,7 @@ This folder contains official pyTorch implementations for *"Do Your Best and Get
 
 
 <p align="center">
-    <img width="700px" src="img/framework.png"/>
+    <img width="700px" src="https://github.com/user-attachments/assets/85ab9c6a-05fe-4669-90e2-1a1419dff3a2"/>
     <br/>
   <h4 align="center">Illustration of View-Batch Model</h4>
 </p>
