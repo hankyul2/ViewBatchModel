@@ -33,7 +33,7 @@ sys.path.append(mammoth_path)
 sys.path.append(mammoth_path + '/datasets')
 sys.path.append(mammoth_path + '/backbone')
 sys.path.append(mammoth_path + '/models')
-sys.path.remove('/home/hankyul/private/LightNet/edede')  # for debugging only
+# sys.path.remove('/home/hankyul/private/LightNet/edede')  # for debugging purpose only
 
 from utils import create_if_not_exists, custom_str_underscore
 from utils.args import add_management_args, add_experiment_args
