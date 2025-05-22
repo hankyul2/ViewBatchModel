@@ -29,16 +29,15 @@ This folder contains official pyTorch implementations for *"Do Your Best and Get
    iCaRL
 
    ```bash
-   # this will save checkpoints to icarl_r1_s1993
    CUDA_VISIBLE_DEVICES=0 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --seed 1993 --savecheck 1 --ckpt_name icarl_r1_s1993
    ```
-
+   
    **Ours**-iCaRL
-
+   
    ```bash
    CUDA_VISIBLE_DEVICES=4 python utils/main.py --model icarl --load_best_args --dataset seq-cifar10 --buffer_size 200 --aug-repeat 4 --prog-aug 5 --seed 1993 --flag hard_aug --savecheck 1 --ckpt_name icarl_r4_hard_aug_s1993
    ```
-
+   
 3. Validate the trained network using the saved checkpoint.
 
    iCaRL
